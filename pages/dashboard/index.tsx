@@ -1,24 +1,23 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { Hero } from '../components/hero'
-import { Layout } from '../layouts/layout'
-import { SITE, SITES } from '../src/graphql/query/siteV1.query'
-import { Site } from '../src/interfaces/siteV1'
-import { graphQLClientS } from '../src/swr/graphQLClient'
-import { seo } from '../src/utils/function'
+import { Layout } from '../../layouts/layout'
+import { SITE } from '../../src/graphql/query/siteV1.query'
+import { Site } from '../../src/interfaces/siteV1'
+import { graphQLClientS } from '../../src/swr/graphQLClient'
+import { seo } from '../../src/utils/function'
 
 interface Props {
   site: Site
 }
 
-const Index: FC<Props> = ({ site }) => {
+const Dashboard: FC<Props> = ({ site }) => {
   const { query, asPath } = useRouter()
-  // console.log(seo(site,asPath));
+  console.log('/'.split('/'));
+  
   return (
     <Layout head={seo(site, asPath)!}>
-      <Hero />
-      {/* <h1>hola jesus como estas</h1> */}
+      <h1>{asPath}</h1>
     </Layout>
   )
 }
@@ -30,4 +29,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 10,
   }
 }
-export default Index
+export default Dashboard
