@@ -35,3 +35,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # my-app
 # crisjs2
 # crisjs3
+# storeV1
